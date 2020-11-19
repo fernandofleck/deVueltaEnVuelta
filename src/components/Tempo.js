@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import Controls from './Controls';
+import React, {Component, Fragment} from 'react';
+//import Controls from './Controls';
 import Progress from './Progress';
 
 class Tempo extends Component{
@@ -14,7 +14,6 @@ class Tempo extends Component{
             seconds: props.minutos*60+props.segundos,
             vueltasInitial: props.vueltas,
             vueltas: props.vueltas,
-            add: false
         };
         this.timer = 0;
         this.startTimer = this.startTimer.bind(this);
@@ -76,17 +75,17 @@ class Tempo extends Component{
         if (this.state.vueltas===0)
         {
             return(
-                <div>
+                <Fragment>
                     <h2>¡¡¡Has Finalizado!!!</h2>
                     <audio id='beeep'>
                         <source src='./sounds/beepLong.mp3'></source>
                     </audio>
-                </div>
+                </Fragment>
             );
         }else{
             return(
-                <div>
-                    <button onClick={this.startTimer}>Start</button>
+                <Fragment>
+                    <button className="btn-floating btn waves-effect waves-light buttonColor" onClick={this.startTimer}><i className="material-icons waves-effect waves-light buttonColor">play_arrow</i></button>
                     <h1>m: {this.state.time.m} s: {this.state.time.s}</h1>
                     <br/>
                     <h2>Vuelta: {this.state.vueltas} </h2>
@@ -94,13 +93,8 @@ class Tempo extends Component{
                     <audio id='beep'>
                         <source src='./sounds/beepShort.mp3'></source>
                     </audio>
-                    <button>
-                        <source></source>
-                        <img src='./icon/add.svg' alt='Sumar'></img>
-                    </button>
-                    <Controls />
-                    <Progress sumar={this.state.add}/>
-                </div>
+                    <Progress/>
+                </Fragment>
             );
         }
     }

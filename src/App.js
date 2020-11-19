@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './styles/Button.css';
 import Nav from './components/Nav';
 import TempoStart from './components/TempoStart';
 

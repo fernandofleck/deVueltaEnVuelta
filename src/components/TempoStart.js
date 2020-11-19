@@ -43,7 +43,7 @@ class TempoStart extends Component{
                         <input type='text' name='segundos' placeholder='0' value={this.state.segundos} onChange={this.handleChange}/>
                         <br/>
                         <label>Vueltas: </label>
-                        <input type='text' name='vueltas' placeholder='0' value={this.state.vueltas} onChange={this.handleChange}/>
+                        <input type='text' name='vueltas' placeholder='0' required value={this.state.vueltas} onChange={this.handleChange}/>
                         <br/>
                         <input type='submit' value='Comenzar'/>
                     </form>
