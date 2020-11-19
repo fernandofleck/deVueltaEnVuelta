@@ -51,14 +51,12 @@ class Tempo extends Component{
     }
  
     countDown() {
-        // Remove one second, set state so a re-render happens.
         let seconds = this.state.seconds - 1;
         this.setState({
             time: this.secondsToTime(seconds),
             seconds: seconds,
         });
         
-        // Check if we're at zero.
         if (seconds === 0) {
             let beepbeep = document.getElementById('beep');
             beepbeep.play();
